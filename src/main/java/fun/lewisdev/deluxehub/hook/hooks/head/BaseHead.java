@@ -1,10 +1,10 @@
 package fun.lewisdev.deluxehub.hook.hooks.head;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import fun.lewisdev.deluxehub.DeluxeHubPlugin;
 import fun.lewisdev.deluxehub.hook.PluginHook;
-import fun.lewisdev.deluxehub.utility.universal.XMaterial;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 

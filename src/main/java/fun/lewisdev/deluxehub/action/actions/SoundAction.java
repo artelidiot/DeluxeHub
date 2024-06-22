@@ -1,8 +1,8 @@
 package fun.lewisdev.deluxehub.action.actions;
 
+import com.cryptomorin.xseries.XSound;
 import fun.lewisdev.deluxehub.DeluxeHubPlugin;
 import fun.lewisdev.deluxehub.action.Action;
-import fun.lewisdev.deluxehub.utility.universal.XSound;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

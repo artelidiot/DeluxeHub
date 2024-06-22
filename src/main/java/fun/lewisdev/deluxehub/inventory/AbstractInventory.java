@@ -68,10 +68,9 @@ public abstract class AbstractInventory implements Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getView().getTopInventory().getHolder() instanceof InventoryBuilder && refreshEnabled) {
+        if (event.getInventory().getHolder() instanceof InventoryBuilder && refreshEnabled) {
             openInventories.remove(event.getPlayer().getUniqueId());
             //System.out.println("removed " + event.getPlayer().getName());
         }
     }
-
 }

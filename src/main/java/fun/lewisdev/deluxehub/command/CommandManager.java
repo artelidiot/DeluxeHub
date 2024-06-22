@@ -12,7 +12,8 @@ import fun.lewisdev.deluxehub.config.ConfigType;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandManager {
 
@@ -76,7 +77,7 @@ public class CommandManager {
     private void registerCommand(String cmd, String[] aliases) {
         switch (cmd.toUpperCase()) {
             case "GAMEMODE":
-                commandRegistry.register(GamemodeCommand.class, aliases);
+                commandRegistry.register(GameModeCommand.class, aliases);
                 break;
             case "GMS":
                 commandRegistry.register(SurvivalCommand.class, aliases);
@@ -91,13 +92,13 @@ public class CommandManager {
                 commandRegistry.register(SpectatorCommand.class, aliases);
                 break;
             case "CLEARCHAT":
-                commandRegistry.register(ClearchatCommand.class, aliases);
+                commandRegistry.register(ClearChatCommand.class, aliases);
                 break;
             case "FLY":
                 commandRegistry.register(FlyCommand.class, aliases);
                 break;
             case "LOCKCHAT":
-                commandRegistry.register(LockchatCommand.class, aliases);
+                commandRegistry.register(LockChatCommand.class, aliases);
                 break;
             case "SETLOBBY":
                 commandRegistry.register(SetLobbyCommand.class, aliases);

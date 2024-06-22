@@ -24,7 +24,7 @@ public class SetLobbyCommand {
             aliases = {"setlobby"},
             desc = "Set the lobby location"
     )
-    public void setlobby(final CommandContext args, final CommandSender sender) throws CommandException {
+    public void setLobby(final CommandContext args, final CommandSender sender) throws CommandException {
 
         if (!sender.hasPermission(Permissions.COMMAND_SET_LOBBY.getPermission())) {
             Messages.NO_PERMISSION.send(sender);

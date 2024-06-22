@@ -1,8 +1,8 @@
 package fun.lewisdev.deluxehub.utility;
 
+import com.cryptomorin.xseries.XMaterial;
 import fun.lewisdev.deluxehub.DeluxeHubPlugin;
 import fun.lewisdev.deluxehub.hook.hooks.head.HeadHook;
-import fun.lewisdev.deluxehub.utility.universal.XMaterial;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -177,7 +178,7 @@ public class ItemStackBuilder {
         final ItemMeta meta = ITEM_STACK.getItemMeta();
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         ITEM_STACK.setItemMeta(meta);
-        ITEM_STACK.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+        ITEM_STACK.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
         return this;
     }
 

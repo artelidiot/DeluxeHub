@@ -11,11 +11,11 @@ import fun.lewisdev.deluxehub.module.modules.chat.ChatLock;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-public class LockchatCommand {
+public class LockChatCommand {
 
     private final DeluxeHubPlugin plugin;
 
-    public LockchatCommand(DeluxeHubPlugin plugin) {
+    public LockChatCommand(DeluxeHubPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -23,7 +23,7 @@ public class LockchatCommand {
             aliases = {"lockchat"},
             desc = "Locks global chat"
     )
-    public void lockchat(final CommandContext args, final CommandSender sender) throws CommandException {
+    public void lockChat(final CommandContext args, final CommandSender sender) throws CommandException {
 
         if (!sender.hasPermission(Permissions.COMMAND_LOCKCHAT.getPermission())) {
             Messages.NO_PERMISSION.send(sender);

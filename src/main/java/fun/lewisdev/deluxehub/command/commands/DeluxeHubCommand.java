@@ -38,7 +38,7 @@ public class DeluxeHubCommand {
             aliases = {"deluxehub", "dhub"},
             desc = "View plugin information"
     )
-    public void main(final CommandContext args, final CommandSender sender) throws CommandException {
+    public void deluxeHub(final CommandContext args, final CommandSender sender) throws CommandException {
 
         PluginDescriptionFile pdfFile = plugin.getDescription();
 

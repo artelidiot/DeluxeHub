@@ -1,12 +1,9 @@
 package fun.lewisdev.deluxehub.utility;
 
 import fun.lewisdev.deluxehub.utility.color.IridiumColorAPI;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Color;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TextUtil {
 
@@ -17,7 +14,7 @@ public class TextUtil {
     }
 
     public static String getCenteredMessage(String message) {
-        if (message == null || message.equals("")) return "";
+        if (message == null || message.isEmpty()) return "";
 
         message = color(message).replace("<center>", "").replace("</center>", "");
 
@@ -28,13 +25,9 @@ public class TextUtil {
         for (char c : message.toCharArray()) {
             if (c == '�') {
                 previousCode = true;
-
             } else if (previousCode) {
                 previousCode = false;
-                if (c == 'l' || c == 'L') {
-                    isBold = true;
-                } else isBold = false;
-
+                isBold = c == 'l' || c == 'L';
             } else {
                 DefaultFontInfo dFI = DefaultFontInfo.getDefaultFontInfo(c);
                 messagePxSize += isBold ? dFI.getBoldLength() : dFI.getLength();

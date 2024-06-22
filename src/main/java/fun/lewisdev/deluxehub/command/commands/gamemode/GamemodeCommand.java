@@ -11,9 +11,9 @@ import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class GamemodeCommand {
+public class GameModeCommand {
 
-    public GamemodeCommand(DeluxeHubPlugin plugin) {
+    public GameModeCommand(DeluxeHubPlugin plugin) {
     }
 
     @Command(
@@ -23,7 +23,7 @@ public class GamemodeCommand {
             min = 1,
             max = 2
     )
-    public void gamemode(final CommandContext args, final CommandSender sender) throws CommandException {
+    public void gameMode(final CommandContext args, final CommandSender sender) throws CommandException {
 
         if (args.argsLength() == 1) {
 

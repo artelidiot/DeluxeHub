@@ -1,10 +1,6 @@
 package fun.lewisdev.deluxehub;
 
-import cl.bgmp.minecraft.util.commands.exceptions.CommandException;
-import cl.bgmp.minecraft.util.commands.exceptions.CommandPermissionsException;
-import cl.bgmp.minecraft.util.commands.exceptions.CommandUsageException;
-import cl.bgmp.minecraft.util.commands.exceptions.MissingNestedCommandException;
-import cl.bgmp.minecraft.util.commands.exceptions.WrappedCommandException;
+import cl.bgmp.minecraft.util.commands.exceptions.*;
 import de.tr7zw.changeme.nbtapi.utils.MinecraftVersion;
 import fun.lewisdev.deluxehub.action.ActionManager;
 import fun.lewisdev.deluxehub.command.CommandManager;
@@ -17,9 +13,8 @@ import fun.lewisdev.deluxehub.inventory.InventoryManager;
 import fun.lewisdev.deluxehub.module.ModuleManager;
 import fun.lewisdev.deluxehub.module.ModuleType;
 import fun.lewisdev.deluxehub.module.modules.hologram.HologramManager;
-import fun.lewisdev.deluxehub.utility.TextUtil;
 import fun.lewisdev.deluxehub.utility.UpdateChecker;
-import org.bstats.bukkit.MetricsLite;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -66,9 +61,6 @@ public class DeluxeHubPlugin extends JavaPlugin {
 
         MinecraftVersion.disableUpdateCheck();
 
-        // Enable bStats metrics
-        new MetricsLite(this, BSTATS_ID);
-
         // Check plugin hooks
         hooksManager = new HooksManager(this);
 
@@ -77,7 +69,9 @@ public class DeluxeHubPlugin extends JavaPlugin {
         configManager.loadFiles(this);
 
         // If there were any configuration errors we should not continue
-        if (!getServer().getPluginManager().isPluginEnabled(this)) return;
+        if (!getServer().getPluginManager().isPluginEnabled(this)) {
+            return;
+        }
 
         // Command manager
         commandManager = new CommandManager(this);
@@ -88,7 +82,9 @@ public class DeluxeHubPlugin extends JavaPlugin {
 
         // Inventory (GUI) manager
         inventoryManager = new InventoryManager();
-        if (!hooksManager.isHookEnabled("HEAD_DATABASE")) inventoryManager.onEnable(this);
+        if (!hooksManager.isHookEnabled("HEAD_DATABASE")) {
+            inventoryManager.onEnable(this);
+        }
 
         // Core plugin modules
         moduleManager = new ModuleManager();
@@ -97,9 +93,15 @@ public class DeluxeHubPlugin extends JavaPlugin {
         // Action system
         actionManager = new ActionManager(this);
 
+        // Enable bStats metrics (if enabled)
+        if (getConfigManager().getFile(ConfigType.SETTINGS).getConfig().getBoolean("enable-metrics")) {
+            new Metrics(this, BSTATS_ID);
+        }
+
         // Load update checker (if enabled)
-        if (getConfigManager().getFile(ConfigType.SETTINGS).getConfig().getBoolean("update-check"))
+        if (getConfigManager().getFile(ConfigType.SETTINGS).getConfig().getBoolean("update-check")) {
             new UpdateChecker(this).checkForUpdate();
+        }
 
         // Register BungeeCord channels
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
@@ -113,7 +115,6 @@ public class DeluxeHubPlugin extends JavaPlugin {
         moduleManager.unloadModules();
         inventoryManager.onDisable();
         configManager.saveFiles();
-
     }
 
     public void reload() {

@@ -10,9 +10,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class ClearchatCommand {
+public class ClearChatCommand {
 
-    public ClearchatCommand(DeluxeHubPlugin plugin) {
+    public ClearChatCommand(DeluxeHubPlugin plugin) {
     }
 
     @Command(
@@ -21,7 +21,7 @@ public class ClearchatCommand {
             usage = "[player]",
             max = 1
     )
-    public void clearchat(final CommandContext args, final CommandSender sender) throws CommandException {
+    public void clearChat(final CommandContext args, final CommandSender sender) throws CommandException {
 
         if (!(sender.hasPermission(Permissions.COMMAND_CLEARCHAT.getPermission()))) {
             Messages.NO_PERMISSION.send(sender);

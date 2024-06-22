@@ -1,10 +1,9 @@
 package fun.lewisdev.deluxehub.module.modules.visual.tablist;
 
+import com.cryptomorin.xseries.reflection.XReflection;
+import com.cryptomorin.xseries.reflection.minecraft.MinecraftConnection;
 import com.google.common.base.Strings;
-import fun.lewisdev.deluxehub.DeluxeHubPlugin;
 import fun.lewisdev.deluxehub.utility.TextUtil;
-import fun.lewisdev.deluxehub.utility.reflection.ReflectionUtils;
-import fun.lewisdev.deluxehub.utility.universal.XMaterial;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
@@ -21,16 +20,16 @@ public class TablistHelper {
         footer = Strings.isNullOrEmpty(footer) ?
                 "" : TextUtil.color(footer).replace("%player%", player.getDisplayName());
 
-        if(XMaterial.supports(13)) {
+        if(XReflection.supports(13)) {
             player.setPlayerListHeaderFooter(header, footer);
             return;
         }
 
         try {
-            Method chatComponentBuilderMethod = ReflectionUtils.getNMSClass("IChatBaseComponent").getDeclaredClasses()[0].getMethod("a", String.class);
+            Method chatComponentBuilderMethod = XReflection.getNMSClass("IChatBaseComponent").getDeclaredClasses()[0].getMethod("a", String.class);
             Object tabHeader = chatComponentBuilderMethod.invoke(null, "{\"text\":\"" + header + "\"}");
             Object tabFooter = chatComponentBuilderMethod.invoke(null, "{\"text\":\"" + footer + "\"}");
-            Object packet = ReflectionUtils.getNMSClass("PacketPlayOutPlayerListHeaderFooter").getConstructor().newInstance();
+            Object packet = XReflection.getNMSClass("PacketPlayOutPlayerListHeaderFooter").getConstructor().newInstance();
 
             Field aField;
             Field bField;
@@ -48,7 +47,7 @@ public class TablistHelper {
             bField.setAccessible(true);
             bField.set(packet, tabFooter);
 
-            ReflectionUtils.sendPacket(player, packet);
+            MinecraftConnection.sendPacket(player, packet);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

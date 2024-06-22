@@ -1,5 +1,6 @@
 package fun.lewisdev.deluxehub.module.modules.world;
 
+import com.cryptomorin.xseries.reflection.XReflection;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import fun.lewisdev.deluxehub.DeluxeHubPlugin;
@@ -8,7 +9,6 @@ import fun.lewisdev.deluxehub.config.ConfigType;
 import fun.lewisdev.deluxehub.config.Messages;
 import fun.lewisdev.deluxehub.module.Module;
 import fun.lewisdev.deluxehub.module.ModuleType;
-import fun.lewisdev.deluxehub.utility.universal.XMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
@@ -19,7 +19,7 @@ public class AntiWorldDownloader extends Module implements PluginMessageListener
 
     public AntiWorldDownloader(DeluxeHubPlugin plugin) {
         super(plugin, ModuleType.ANTI_WDL);
-        this.legacy = !XMaterial.supports(13);
+        this.legacy = !XReflection.supports(13);
     }
 
     @Override

@@ -1,9 +1,9 @@
 package fun.lewisdev.deluxehub.action.actions;
 
+import com.cryptomorin.xseries.messages.ActionBar;
 import fun.lewisdev.deluxehub.DeluxeHubPlugin;
 import fun.lewisdev.deluxehub.action.Action;
 import fun.lewisdev.deluxehub.utility.TextUtil;
-import fun.lewisdev.deluxehub.utility.reflection.ActionBar;
 import org.bukkit.entity.Player;
 
 public class ActionbarAction implements Action {

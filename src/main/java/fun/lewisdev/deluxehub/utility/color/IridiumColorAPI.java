@@ -1,11 +1,11 @@
 package fun.lewisdev.deluxehub.utility.color;
 
+import com.cryptomorin.xseries.reflection.XReflection;
 import com.google.common.collect.ImmutableMap;
 import fun.lewisdev.deluxehub.utility.color.patterns.GradientPattern;
 import fun.lewisdev.deluxehub.utility.color.patterns.Pattern;
 import fun.lewisdev.deluxehub.utility.color.patterns.RainbowPattern;
 import fun.lewisdev.deluxehub.utility.color.patterns.SolidPattern;
-import fun.lewisdev.deluxehub.utility.universal.XMaterial;
 import net.md_5.bungee.api.ChatColor;
 
 import java.awt.*;
@@ -21,7 +21,7 @@ public class IridiumColorAPI {
      *
      * @since 1.0.0
      */
-    private static final boolean SUPPORTS_RGB = XMaterial.getVersion() >= 16;
+    private static final boolean SUPPORTS_RGB = XReflection.supports(16);
 
     private static final List<String> SPECIAL_COLORS = Arrays.asList("&l", "&n", "&o", "&k", "&m");
 

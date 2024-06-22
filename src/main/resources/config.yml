@@ -21,7 +21,7 @@
 #   %online_max% - Returns number of max player slots
 # 
 #        *** USE PLACEHOLDERAPI TO GET MORE ***
-#  (https://www.spigotmc.org/resources/placeholderapi.6245/)
+#  (https://www.spigotmc.org/resources/6245/)
 #--------
 # ACTIONS:
 #
@@ -48,6 +48,9 @@
 
 # Check for latest SpigotMC updates (recommended).
 check-updates: true
+
+# Enable bStats metrics
+enable-metrics: true
 
 # Disable specific worlds
 disabled-worlds:
