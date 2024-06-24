@@ -1,6 +1,6 @@
 package fun.lewisdev.deluxehub.utility;
 
-import fun.lewisdev.deluxehub.utility.color.IridiumColorAPI;
+import com.iridium.iridiumcolorapi.IridiumColorAPI;
 import org.bukkit.Color;
 
 import java.util.List;

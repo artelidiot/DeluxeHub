@@ -52,6 +52,10 @@
             <id>minecraft.net</id>
             <url>https://libraries.minecraft.net/</url>
         </repository>
+        <repository>
+            <id>iridiumdevelopment.net</id>
+            <url>https://nexus.iridiumdevelopment.net/repository/maven-releases/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -109,6 +113,11 @@
             <version>1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.iridium</groupId>
+            <artifactId>IridiumColorAPI</artifactId>
+            <version>1.0.9</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -136,6 +145,7 @@
                             <include>javax.inject:javax.inject</include>
                             <include>com.github.cryptomorin:XSeries</include>
                             <include>de.tr7zw:item-nbt-api</include>
+                            <include>com.iridium:IridiumColorAPI</include>
                         </includes>
                     </artifactSet>
                     <relocations>
@@ -158,6 +168,10 @@
                         <relocation>
                             <pattern>de.tr7zw.changeme.nbtapi</pattern>
                             <shadedPattern>fun.lewisdev.deluxehub.libs.nbt</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.iridium.iridiumcolorapi</pattern>
+                            <shadedPattern>fun.lewisdev.deluxehub.libs.iridium-color-api</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
