@@ -45,6 +45,7 @@ public class UpdateChecker {
                     try {
                         final HttpsURLConnection connection = (HttpsURLConnection) new URL("https://api.spigotmc.org/legacy/update.php?resource=" + ID).openConnection();
                         connection.setRequestMethod("GET");
+                        // TODO: Fix this resource leak - new update checker?
                         spigotPluginVersion = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
                     } catch (IOException e) {
                         e.printStackTrace();

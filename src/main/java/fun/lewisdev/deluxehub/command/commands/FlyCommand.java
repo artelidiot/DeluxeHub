@@ -24,14 +24,12 @@ public class FlyCommand {
     public void flight(final CommandContext args, final CommandSender sender) throws CommandException {
 
         if (args.argsLength() == 0) {
-            if (!(sender instanceof Player)) throw new CommandException("Console cannot clear inventory");
+            if (!(sender instanceof Player player)) throw new CommandException("Console cannot clear inventory");
 
             if (!(sender.hasPermission(Permissions.COMMAND_FLIGHT.getPermission()))) {
                 Messages.NO_PERMISSION.send(sender);
                 return;
             }
-
-            Player player = (Player) sender;
 
             if (player.getAllowFlight()) {
                 Messages.FLIGHT_DISABLE.send(player);

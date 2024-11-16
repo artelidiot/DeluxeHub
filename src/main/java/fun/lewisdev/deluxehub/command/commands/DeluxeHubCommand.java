@@ -103,7 +103,7 @@ public class DeluxeHubCommand {
 		*/
         else if (args.getString(0).equalsIgnoreCase("scoreboard")) {
 
-            if (!(sender instanceof Player)) throw new CommandException("Console cannot toggle the scoreboard");
+            if (!(sender instanceof Player player)) throw new CommandException("Console cannot toggle the scoreboard");
 
             if (!sender.hasPermission(Permissions.COMMAND_SCOREBOARD_TOGGLE.getPermission())) {
                 Messages.NO_PERMISSION.send(sender);
@@ -115,7 +115,6 @@ public class DeluxeHubCommand {
                 return;
             }
 
-            Player player = (Player) sender;
             ScoreboardManager scoreboardManager = ((ScoreboardManager) plugin.getModuleManager().getModule(ModuleType.SCOREBOARD));
 
             if (scoreboardManager.hasScore(player.getUniqueId())) {
@@ -197,7 +196,7 @@ public class DeluxeHubCommand {
          */
         if (args.getString(0).equalsIgnoreCase("hologram") || args.getString(0).equalsIgnoreCase("holo")) {
 
-            if (!(sender instanceof Player)) {
+            if (!(sender instanceof Player player)) {
                 sender.sendMessage("You cannot do this command.");
                 return;
             }
@@ -229,8 +228,6 @@ public class DeluxeHubCommand {
                 sender.sendMessage("");
                 return;
             }
-
-            Player player = (Player) sender;
 
             if (args.argsLength() >= 2) {
                 if (args.getString(1).equalsIgnoreCase("list")) {
@@ -371,7 +368,6 @@ public class DeluxeHubCommand {
                     holo.setLocation(player.getLocation());
                     Messages.HOLOGRAMS_MOVED.send(player, "%name%", args.getString(2));
                 }
-                return;
 
             }
 
